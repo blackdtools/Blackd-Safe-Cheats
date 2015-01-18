@@ -1,0 +1,201 @@
+[Tibia]
+; -------------------------------------
+; IMPORTANT: ensure that you use the
+; correct config.int for the
+; Tibia version that you are going
+; to play. Check TibiaVersion below.
+; -------------------------------------
+TibiaVersion=9.81
+TibiaClassname=tibiaclient
+; For Tibia 9.0 and below you must SET useDynamicOffset=no
+useDynamicOffset=yes
+
+
+; [[[[[[[[[[[[[[[[[[[[[[[[[[[
+; BEGIN AUTOMATIC UPDATE ZONE
+tibiaModuleRegionSize=&H2F6000
+MemLoginServer1=&H7B7558
+MemLoginServer2=&H7B75C8
+MemLoginServer3=&H7B7638
+MemLoginServer4=&H7B76A8
+MemLoginServer5=&H7B7718
+MemLoginServer6=&H7B7788
+MemLoginServer7=&H7B77F8
+MemLoginServer8=&H7B7868
+MemLoginServer9=&H7B78D8
+MemLoginServer10=&H7B7948
+MemPortLoginServer1=&H7B75BC
+MemPortLoginServer2=&H7B762C
+MemPortLoginServer3=&H7B769C
+MemPortLoginServer4=&H7B770C
+MemPortLoginServer5=&H7B777C
+MemPortLoginServer6=&H7B77EC
+MemPortLoginServer7=&H7B785C
+MemPortLoginServer8=&H7B78CC
+MemPortLoginServer9=&H7B793C
+MemPortLoginServer10=&H7B79AC
+adrMulticlient=&H532365
+PLAYER_Z=&H983EB0
+LEVELSPY_NOP=&H4F5730
+LEVELSPY_ABOVE=&H4F572C
+LEVELSPY_BELOW=&H4F5734
+LIGHT_NOP=&H515BE9
+LIGHT_AMOUNT=&H515BEE
+MAP_POINTER_ADDR=&H9DA5C4
+OFFSET_POINTER_ADDR=&H9DA5E0
+adrConnectionKey=&H7AEF6C
+adrXOR=&H7B6EF0
+adrMyHP=&H94C000
+adrMyMaxHP=&H983E9C
+adrMyMana=&H7B6F44
+adrMyMaxMana=&H7B6EF4
+adrMySoul=&H7B6F30
+adrNameStart=&H94C008
+adrNChar=&H94C008
+adrNum=&H983EA4
+adrXPos=&H983EA8
+adrYPos=&H983EAC
+adrZPos=&H983EB0
+adrConnected=&H7C0CF8
+RedSquare=&H7B6F40
+adrLastPacket=&H7BDDDA
+adrCharListPtr=&H949CE8
+adrCharListPtrEND=&H949CEC
+adrSelectedCharIndex=&H949D34
+adrXgo=&H983EA0
+adrYgo=&H983E98
+adrZgo=&H94C004
+LAST_BATTLELISTPOS=1299
+CharDist=&HB0
+adrGo=&H94C058
+adrPointerToInternalFPSminusH5D=&H9960CC
+adrNumberOfAttackClick=&H9D3FC8
+; ]]]]]]]]]]]]]]]]]]]]]]]]]]]
+; END - AUTOMATIC UPDATE ZONE
+
+
+
+
+
+
+
+; Rarely needs update:
+NameDist=&H4
+OutfitDist=&H60
+LightDist=124
+LightColourDist=128
+
+
+MAXTILEIDLISTSIZE=50
+MAXDATTILES=19000
+
+; 1300 elements in Tibia 9.1
+LAST_BATTLELISTPOS=1299
+
+[tileIDs]
+tileID_Blank=4B 0C
+tileID_SD=53 0C
+tileID_HMM=7E 0C
+tileID_Explosion=80 0C
+tileID_IH=50 0C
+tileID_UH=58 0C
+tileID_Bag=25 0B
+tileID_Backpack=36 0B
+tileID_Oracle=EF 07
+tileID_FishingRod=9B 0D
+tileID_Rope=BB 0B
+tileID_Shovel=81 0D
+;ramps - updated
+tileID_rampToRightCycMountain=9E 07
+tileID_rampToLeftCycMountain=A0 07
+tileID_rampToSouth=A2 07
+tileID_rampToNorth=A4 07
+;grass - important
+tileID_grassCouldBeHole=25 01
+; wooden stairs to up - important
+tileID_woodenStairstoUp=A6 07
+;not important for new version
+tileID_ladderToUp=89 07
+tileID_holeInCelling=80 01
+tileID_grassCouldBeHole=25 01
+tileID_stairsToUp=88 07
+tileID_pitfall=26 01
+tileID_openHole=44 02
+tileID_OpenDesertLooseStonePile=51 02
+tileID_trapdoor=71 01
+tileID_down1=72 01
+tileID_openHole2=7F 01
+tileID_trapdoor2=98 01
+tileID_down2=99 01
+tileID_stairsToDownKazordoon=9A 01
+tileID_stairsToDownThais=9B 01
+tileID_trapdoorKazordoon=AB 01
+tileID_down3=AC 01
+tileID_stairsToDown=AD 01
+tileID_stairsToDown2=B0 01
+tileID_woodenStairstoDown=B1 01
+tileID_rampToDown=CB 01
+tileID_sewerGate=AE 01
+tileID_closedHole=43 02
+tileID_desertLooseStonePile=50 02
+;FOOD
+tileID_firstFoodTileID=F9 0D
+tileID_lastFoodTileID=17 0E
+tileID_firstMushroomTileID=8B 0E
+tileID_lastMushroomTileID=8F 0E
+;fields
+tileID_firstFieldRangeStart=46 08
+tileID_firstFieldRangeEnd=4F 08
+tileID_secondFieldRangeStart=53 08
+tileID_secondFieldRangeEnd=5A 08
+tileID_walkableFire1=48 08
+tileID_walkableFire2=4D 08
+tileID_walkableFire3=55 08
+;inside depot container updated 
+tileID_depotChest=AE 0D
+;water
+tileID_waterEmpty=01 12
+tileID_waterEmptyEnd=06 12
+
+tileID_waterWithFish=F5 11
+tileID_waterWithFishEnd=FA 11
+
+tileID_campFire1=D0 07
+tileID_campFire2=CE 07
+tileID_flask=3A 0B
+byteMana=&HA
+byteLife=&HB
+byteNothing=&H0
+tileID_desertRamptoUp=A8 07
+tileID_WallBugItem=4E 10
+tileID_jungleStairsToNorth=B9 07
+tileID_jungleStairsToLeft=BA 07
+
+tileID_health_potion=0A 01
+tileID_strong_health_potion=EC 00
+tileID_great_health_potion=EF 00
+tileID_mana_potion=0C 01
+tileID_strong_mana_potion=ED 00
+tileID_great_mana_potion=EE 00
+tileID_ultimate_health_potion=DB 1D
+tileID_great_spirit_potion=DA 1D
+tileID_small_health_potion=C4 1E
+
+
+; LISTS OF ADITIONAL STAIRS  
+; to up, in this order: ankrahmun south->north, north->south,right->left,pyramid cornerNW,cornerNE,cornerSE,cornerSW 
+; ice stair south->north, left->right , right->left,mini left->right
+; femor hills right->left, femor hills left->right
+; Yalahar left->right, north->south
+; added Port Hope ramp (B7 07)
+AditionalStairsToUpFloor=AC 07,AE 07,AA 07,94 08,96 08,90 08,92 08,03 1B,FF 1A,FD 1A,78 1D,76 1D,58 03,57 03,B7 07
+; to down
+AditionalStairsToDownFloor=36 1D,62 1D,64 03,34 1D,35 1D
+AditionalRequireRope=
+AditionalRequireShovel=63 03
+tileID_blockingBox=00 00
+tileID_LightShovel=4E 16
+tileID_fireball=75 0C
+tileID_stalagmite=6B 0C
+tileID_icicle=56 0C
+tileID_LightRope=86 02

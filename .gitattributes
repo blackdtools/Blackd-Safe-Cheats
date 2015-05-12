@@ -15,3 +15,15 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+# VB6 special
+*.frx binary
+*.ocx binary
+*.oca binary
+*.PDM binary
+*.frm eol=crlf
+*.bas eol=crlf
+*.cls eol=crlf
+*.ctl eol=crlf
+*.vbp eol=crlf
+*.vbw eol=crlf

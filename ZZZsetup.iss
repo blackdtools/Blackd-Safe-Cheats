@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Blackd Safe Cheats"
-#define MyAppVersion "2.2.0"
+#define MyAppVersion "2.2.1"
 #define MyAppPublisher "blackdtools.com"
 #define MyAppURL "http://blackdtools.com"
 #define MyAppExeName "Tibia.exe"
@@ -156,6 +156,7 @@ Source: "conf-1078.int"; DestDir: "{app}"; Flags: ignoreversion
 Source: "conf-1079.int"; DestDir: "{app}"; Flags: ignoreversion
 Source: "conf-1080.int"; DestDir: "{app}"; Flags: ignoreversion
 Source: "conf-1081.int"; DestDir: "{app}"; Flags: ignoreversion
+Source: "conf-1082.int"; DestDir: "{app}"; Flags: ignoreversion
 Source: "config.int"; DestDir: "{app}"; Flags: ignoreversion
 Source: "default.ini"; DestDir: "{app}"; Flags: ignoreversion
 Source: "lang_english.txt"; DestDir: "{app}"; Flags: ignoreversion

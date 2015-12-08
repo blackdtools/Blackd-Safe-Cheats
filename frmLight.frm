@@ -131,6 +131,8 @@ Public Sub UpdateLight()
     If TibiaIsConnected = True Then
         tibiaclient = lngTibiaPID
         myID = Memory_ReadLong(adrNum, tibiaclient)
+       ' Debug.Print ("HELMET 10.82 =" & Memory_ReadLong(&HB72DE0, tibiaclient))
+        
         lastPos = -1
         lastPos = MyBattleListPositionByPID(tibiaclient)
       

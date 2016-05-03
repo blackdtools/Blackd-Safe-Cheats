@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.MDIForm mdiMenu 
    BackColor       =   &H00000000&
-   Caption         =   "Blackd Safe Cheats 2.2.4"
+   Caption         =   "Blackd Safe Cheats 2.2.5"
    ClientHeight    =   5400
    ClientLeft      =   165
    ClientTop       =   555

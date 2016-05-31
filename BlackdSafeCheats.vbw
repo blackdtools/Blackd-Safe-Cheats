@@ -1,6 +1,6 @@
 modHardDisk = 66, 87, 698, 686, 
 modMemoryProtection = 88, 116, 720, 715, 
-modCommonFunctions = 116, 59, 748, 658, Z
+modCommonFunctions = 116, 59, 748, 658, 
 modMac = 132, 174, 764, 773, 
 frmMenuAutohealer = 109, 96, 995, 721, , 114, 38, 746, 637, C
 mdiMenu = 171, 104, 803, 703, , 8, 44, 640, 643, C
@@ -11,7 +11,7 @@ modLanguage = 132, 174, 764, 773,
 frmLight = 110, 145, 742, 744, , 66, 87, 698, 686, C
 modTibiaHider = 44, 58, 676, 657, 
 CSocketMaster = 176, 232, 630, 840, 
-modSocketMaster = 11, 5, 484, 789, 
+modSocketMaster = 11, 5, 484, 789, Z
 modCommonDialog_NOOCX = 110, 145, 742, 744, 
 frmXRAY = 154, 203, 786, 802, , 132, 174, 764, 773, C
 modHotkeys = 154, 203, 786, 802, 

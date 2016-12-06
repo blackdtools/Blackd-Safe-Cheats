@@ -1,6 +1,6 @@
 modHardDisk = 66, 87, 698, 686, 
 modMemoryProtection = 88, 116, 720, 715, 
-modCommonFunctions = 116, 59, 748, 658, Z
+modCommonFunctions = 116, 59, 748, 658, 
 modMac = 132, 174, 764, 773, 
 frmMenuAutohealer = 109, 96, 995, 721, , 114, 38, 746, 637, C
 mdiMenu = 171, 104, 803, 703, , 122, 23, 754, 622, C

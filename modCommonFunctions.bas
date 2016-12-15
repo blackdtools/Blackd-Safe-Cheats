@@ -98,10 +98,10 @@ Private Const PROCESS_READ_WRITE_QUERY = PROCESS_VM_READ + PROCESS_VM_WRITE + PR
   Public Declare Function GetTickCount Lib "user" () As Long
 #End If
 
-Public Const ProxyVersion = "41.8" ' Equivalent Blackd Proxy version
-Public Const myNumericVersion = 41800 ' Equivalent Blackd Proxy numeric version
-Public Const SafeVersion = "2.3.4" ' BSC version
-Public Const myNumericSafeVersion = 233 ' BSC numeric version
+Public Const ProxyVersion = "42.1" ' Equivalent Blackd Proxy version
+Public Const myNumericVersion = 42100 ' Equivalent Blackd Proxy numeric version
+Public Const SafeVersion = "2.3.5" ' BSC version
+Public Const myNumericSafeVersion = 235 ' BSC numeric version
 Public Const myAuthProtocol = 2 ' authetication protocol - NOT USED at this moment
 
 ' authentication key - not used at this moment

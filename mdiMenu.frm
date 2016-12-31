@@ -180,7 +180,7 @@ End Function
 
 Private Function LoadConfig(strPath As String) As String
   #If FinalMode Then
-    On Error GoTo goterr
+    On Error GoTo gotErr
   #End If
     Dim strInfo As String
     Dim i As Long
@@ -916,12 +916,12 @@ Private Function LoadConfig(strPath As String) As String
 
     LoadConfig = ""
     Exit Function
-goterr:
+gotErr:
     LoadConfig = "LoadConfig: Got error code " & Err.Number & ": " & Err.Description
 End Function
 Private Function LoadSettings(strPath As String) As String
   #If FinalMode = 1 Then
-  On Error GoTo goterr
+  On Error GoTo gotErr
   #End If
     Dim strInfo As String
     Dim i As Long
@@ -1342,13 +1342,13 @@ Private Function LoadSettings(strPath As String) As String
     
     LoadSettings = ""
     Exit Function
-goterr:
+gotErr:
     LoadSettings = "LoadSettings: Got error code " & Err.Number & ": " & Err.Description
 End Function
 
 
 Private Function LoadLanguage(strPath As String) As String
-    On Error GoTo goterr
+    On Error GoTo gotErr
     Dim strInfo As String
     Dim i As Long
     Dim lonInfo As Long
@@ -1371,11 +1371,11 @@ Private Function LoadLanguage(strPath As String) As String
 
     LoadLanguage = ""
     Exit Function
-goterr:
+gotErr:
     LoadLanguage = "LoadLanguage: Got error code " & Err.Number & ": " & Err.Description
 End Function
 Private Function SaveSettings(ByVal strPath As String) As String
-    On Error GoTo goterr
+    On Error GoTo gotErr
     Dim strInfo As String
     Dim i As Long
     strInfo = CStr(HPmanadelay1)
@@ -1473,7 +1473,7 @@ Private Function SaveSettings(ByVal strPath As String) As String
     
     SaveSettings = ""
     Exit Function
-goterr:
+gotErr:
     SaveSettings = "Got error code " & Err.Number & ": " & Err.Description
 End Function
 
@@ -1530,7 +1530,7 @@ Private Sub MDIForm_Load()
     MustUnload = False
     
     SetAllPrivilegesForMe
-    
+    InitAltSend
     InitTibiaPermaLight
     'Unload frmAuth
     TIBIA_LASTPID = 0
@@ -1656,7 +1656,7 @@ End Sub
 
 
 Private Sub LoadSettingsFromFile()
-    On Error GoTo goterr
+    On Error GoTo gotErr
     
     Dim strRes As String
     Dim strRes2 As String
@@ -1702,14 +1702,14 @@ Private Sub LoadSettingsFromFile()
 '        End If
 '    End If
 '    Exit Sub
-goterr:
+gotErr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadSettingsFromFile"
     End If
 End Sub
 
 Private Sub SaveSettingsToFile()
-    On Error GoTo goterr
+    On Error GoTo gotErr
     
     Dim strRes As String
     Dim strRes2 As String
@@ -1756,7 +1756,7 @@ Private Sub SaveSettingsToFile()
 '        End If
 '    End If
 '    Exit Sub
-goterr:
+gotErr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "Error"
     End If
@@ -1861,7 +1861,7 @@ Private Sub mSetLanguageFile_Click()
 End Sub
 
 Private Sub LoadLangFromFile()
-    On Error GoTo goterr
+    On Error GoTo gotErr
     
     
     Dim strRes As String
@@ -1910,7 +1910,7 @@ Private Sub LoadLangFromFile()
 '        End If
 '    End If
 '    Exit Sub
-goterr:
+gotErr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadLangFromFile"
     End If
@@ -1919,7 +1919,7 @@ End Sub
 
 
 Public Function autoGetTibiaFolder() As String
-    On Error GoTo goterr
+    On Error GoTo gotErr
     Dim tpath As String
     tpath = GetProgFolder()
     If Right$(tpath, 1) <> "\" Then
@@ -1932,13 +1932,13 @@ Public Function autoGetTibiaFolder() As String
         autoGetTibiaFolder = ""
     End If
     Exit Function
-goterr:
+gotErr:
     autoGetTibiaFolder = ""
 End Function
 
 Private Sub LoadTibiaPathFromFile()
   #If FinalMode Then
-    On Error GoTo goterr
+    On Error GoTo gotErr
   #End If
     
     
@@ -1987,7 +1987,7 @@ Private Sub LoadTibiaPathFromFile()
 '        End If
 '    End If
 '    Exit Sub
-goterr:
+gotErr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadTibiaPathFromFile"
     End If
@@ -2015,6 +2015,8 @@ End Sub
 Private Sub mXRAY_Click()
     frmXRAY.Show
 End Sub
+
+
 
 Private Sub tmrDebug_Timer()
     Dim pid As Long

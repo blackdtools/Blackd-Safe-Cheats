@@ -352,7 +352,8 @@ Private Sub timerTicTac_Timer()
         NextHotkeyTime = gtc + rtime
         If GetFocusedTibiaPID() <> 0 Then
             strAction = "{F" & CStr(pressFKey) & "}"
-            SendKeys strAction
+            SendKeysSAFE strAction
+            
         End If
       End If
     End If

@@ -465,8 +465,8 @@ Private Sub TestRechargeVars()
         End If
     Next i
     If theAction <> "" Then
-        SendKeys theAction
-        DoEvents
+        SendKeysSAFE theAction
+        
         Exit Sub
     End If
     
@@ -494,8 +494,8 @@ Private Sub TestRechargeVars()
     Next i
     
     If theAction <> "" Then
-        SendKeys theAction
-        DoEvents
+        SendKeysSAFE theAction
+        
         Exit Sub
     End If
 End Sub

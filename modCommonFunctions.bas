@@ -15,9 +15,9 @@ Option Explicit
       ' API declarations:
     Private Declare Function GetKeyboardState Lib "user32" _
          (pbKeyState As Byte) As Long
-      Private Declare Function GetVersionEx Lib "kernel32" _
+      Private Declare Function GetVersionEx Lib "Kernel32" _
          Alias "GetVersionExA" _
-         (lpVersionInformation As OSVERSIONINFO) As Long
+         (LpVersionInformation As OSVERSIONINFO) As Long
 
       Private Declare Sub keybd_event Lib "user32" _
          (ByVal bVk As Byte, _
@@ -135,15 +135,15 @@ Private Const PROCESS_READ_WRITE_QUERY = PROCESS_VM_READ + PROCESS_VM_WRITE + PR
       Public Const WM_RBUTTONDBLCLK = &H206   'Double-click
       
 #If Win32 Then
-  Public Declare Function GetTickCount Lib "kernel32" () As Long
+  Public Declare Function GetTickCount Lib "Kernel32" () As Long
 #Else
   Public Declare Function GetTickCount Lib "user" () As Long
 #End If
 
-Public Const ProxyVersion = "42.1" ' Equivalent Blackd Proxy version
-Public Const myNumericVersion = 42100 ' Equivalent Blackd Proxy numeric version
-Public Const SafeVersion = "2.3.6" ' BSC version
-Public Const myNumericSafeVersion = 236 ' BSC numeric version
+Public Const ProxyVersion = "42.2" ' Equivalent Blackd Proxy version
+Public Const myNumericVersion = 42200 ' Equivalent Blackd Proxy numeric version
+Public Const SafeVersion = "2.3.7" ' BSC version
+Public Const myNumericSafeVersion = 237 ' BSC numeric version
 Public Const myAuthProtocol = 2 ' authetication protocol - NOT USED at this moment
 
 ' authentication key - not used at this moment
@@ -423,10 +423,10 @@ Public TIBIA_LASTBASE As Long
       Public Declare Function Shell_NotifyIcon Lib "shell32" _
       Alias "Shell_NotifyIconA" _
       (ByVal dwMessage As Long, pnid As NOTIFYICONDATA) As Boolean
-      Public Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" _
+      Public Declare Function GetPrivateProfileString Lib "Kernel32" Alias "GetPrivateProfileStringA" _
 (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As _
 String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
-Public Declare Function WritePrivateProfileString Lib "kernel32" Alias _
+Public Declare Function WritePrivateProfileString Lib "Kernel32" Alias _
 "WritePrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As _
 Any, ByVal lpString As Any, ByVal lpFileName As String) As Long
 Public Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
@@ -436,10 +436,10 @@ Public Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal h
 
 ' get windows with current focus
 Public Declare Function GetForegroundWindow Lib "user32" () As Long
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
-Private Declare Function WriteProcessMemory Lib "kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
-Private Declare Function ReadProcessMemory Lib "kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, ByRef lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
-Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
+Private Declare Function WriteProcessMemory Lib "Kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+Private Declare Function ReadProcessMemory Lib "Kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, ByRef lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+Private Declare Function CloseHandle Lib "Kernel32" (ByVal hObject As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, ByRef lpdwProcessId As Long) As Long
 
 
@@ -613,11 +613,11 @@ End Function
 Public Function SafeLong(strThing As String) As Long
     Dim res As Long
     
-    On Error GoTo gotErr
+    On Error GoTo goterr
     res = CLng(strThing)
     SafeLong = res
     Exit Function
-gotErr:
+goterr:
     SafeLong = 0
 End Function
 
@@ -840,7 +840,7 @@ Public Function MyBattleListPositionByPID(tibiaclient As Long) As Long
   Dim res As Long
   Dim myID As Double
   #If FinalMode Then
-  On Error GoTo gotErr
+  On Error GoTo goterr
   #End If
   res = -1
   myID = CDbl(Memory_ReadLong(adrNum, tibiaclient))
@@ -853,7 +853,7 @@ Public Function MyBattleListPositionByPID(tibiaclient As Long) As Long
   Next c1
   MyBattleListPositionByPID = res
   Exit Function
-gotErr:
+goterr:
   MsgBox "Critical error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "MyBattleListPositionByPID"
   End
 End Function
@@ -876,7 +876,7 @@ Public Function BattleListPositionOfID(tibiaclient As Long, dblID As Double) As 
   Dim res As Long
   Dim myID As Double
   #If FinalMode Then
-  On Error GoTo gotErr
+  On Error GoTo goterr
   #End If
   res = -1
   myID = dblID
@@ -889,7 +889,7 @@ Public Function BattleListPositionOfID(tibiaclient As Long, dblID As Double) As 
   Next c1
   BattleListPositionOfID = res
   Exit Function
-gotErr:
+goterr:
   MsgBox "Critical error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "MyBattleListPositionByPID"
   End
 End Function
@@ -914,12 +914,12 @@ Public Function GetElementFromBattleListPos(ByVal tibiaclient As Long, _
  ByVal bPos As Long, ByVal bElement As Long) As Byte
     Dim res As Byte
     #If FinalMode Then
-    On Error GoTo gotErr
+    On Error GoTo goterr
     #End If
     res = Memory_ReadByte((adrNChar + (bPos * CharDist) + bElement), tibiaclient)
     GetElementFromBattleListPos = res
   Exit Function
-gotErr:
+goterr:
   MsgBox "Critical error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "GetElementFromBattleListPos"
   End
 End Function
@@ -933,23 +933,23 @@ Public Function MaxV(ByVal v1 As Long, ByVal v2 As Long) As Long
 End Function
 
 Public Function HighByteOfLong(Address As Long) As Byte
-On Error GoTo gotErr
+On Error GoTo goterr
   Dim h As Byte
   h = CByte(Address \ 256) ' high byte
   HighByteOfLong = h
-gotErr:
+goterr:
   HighByteOfLong = &H0
 End Function
 
 Public Function LowByteOfLong(Address As Long) As Byte
-On Error GoTo gotErr
+On Error GoTo goterr
   Dim h As Byte
   Dim l As Byte
   h = CByte(Address \ 256)
   l = CByte(Address - (CLng(h) * 256)) ' low byte
   LowByteOfLong = l
   Exit Function
-gotErr:
+goterr:
   LowByteOfLong = &H0
 End Function
 
@@ -1021,7 +1021,7 @@ letsIgnoreIt:
 End Sub
 
 Public Function GetTheLongFromFiveChr(str As String) As Long
-  On Error GoTo gotErr
+  On Error GoTo goterr
   Dim b1 As Byte
   Dim b2 As Byte
   Dim b3 As Byte
@@ -1038,7 +1038,7 @@ Public Function GetTheLongFromFiveChr(str As String) As Long
   End If
   GetTheLongFromFiveChr = res
   Exit Function
-gotErr:
+goterr:
   GetTheLongFromFiveChr = -1 'new in 8.21 +
 End Function
 
@@ -1103,7 +1103,7 @@ Public Sub ReadTileIDFromIni(ByRef thing As Long, ByRef name As String, ByRef he
 End Sub
 
 Public Function TibiaDatExists() As Boolean
-    On Error GoTo gotErr
+    On Error GoTo goterr
   Dim tibiadathere As String
   tibiadathere = TibiaExePath & "tibia.dat"
   If MyFileExists(tibiadathere) = False Then
@@ -1112,7 +1112,7 @@ Public Function TibiaDatExists() As Boolean
   End If
   TibiaDatExists = True
   Exit Function
-gotErr:
+goterr:
   DBGtileError = "Error number = " & CStr(Err.Number) & vbCrLf & " ; Error description = " & Err.Description & " ; Path = " & tibiadathere
   TibiaDatExists = False
 End Function
@@ -1137,7 +1137,7 @@ Private Sub SetKeyboardToggle(TheKey As ToggleKeyEnum, TurnOn As Boolean)
 End Sub
 
 Public Sub SendKeysSAFE(ByRef str As String)
-   On Error GoTo gotErr
+   On Error GoTo goterr
    Dim numLock_previousStatus As Boolean
    Dim numLock_newStatus As Boolean
    If GetKeyState(vbKeyNumlock) = 0 Then
@@ -1163,7 +1163,7 @@ Public Sub SendKeysSAFE(ByRef str As String)
         SetKeyboardToggle tkNumLock, numLock_previousStatus
    End If
    Exit Sub
-gotErr:
+goterr:
    If (AltSendPossible) Then
      Debug.Print ("Error " & CStr(Err.Number) & " at SendKeysSAFE: " & Err.Description & " ; AltSendPossible = True")
    Else
@@ -1173,10 +1173,10 @@ End Sub
 
 Public Sub InitAltSend()
     AltSendPossible = False
-    On Error GoTo gotErr
+    On Error GoTo goterr
     Set WshShell = CreateObject("wscript.shell")
     AltSendPossible = True
     Exit Sub
-gotErr:
+goterr:
     AltSendPossible = False
 End Sub

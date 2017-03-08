@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.MDIForm mdiMenu 
    BackColor       =   &H00000000&
-   Caption         =   "Blackd Safe Cheats 2.3.3"
+   Caption         =   "Blackd Safe Cheats 2.4.0"
    ClientHeight    =   5400
    ClientLeft      =   165
    ClientTop       =   555
@@ -180,7 +180,7 @@ End Function
 
 Private Function LoadConfig(strPath As String) As String
   #If FinalMode Then
-    On Error GoTo gotErr
+    On Error GoTo goterr
   #End If
     Dim strInfo As String
     Dim i As Long
@@ -916,12 +916,12 @@ Private Function LoadConfig(strPath As String) As String
 
     LoadConfig = ""
     Exit Function
-gotErr:
+goterr:
     LoadConfig = "LoadConfig: Got error code " & Err.Number & ": " & Err.Description
 End Function
 Private Function LoadSettings(strPath As String) As String
   #If FinalMode = 1 Then
-  On Error GoTo gotErr
+  On Error GoTo goterr
   #End If
     Dim strInfo As String
     Dim i As Long
@@ -1342,13 +1342,13 @@ Private Function LoadSettings(strPath As String) As String
     
     LoadSettings = ""
     Exit Function
-gotErr:
+goterr:
     LoadSettings = "LoadSettings: Got error code " & Err.Number & ": " & Err.Description
 End Function
 
 
 Private Function LoadLanguage(strPath As String) As String
-    On Error GoTo gotErr
+    On Error GoTo goterr
     Dim strInfo As String
     Dim i As Long
     Dim lonInfo As Long
@@ -1371,11 +1371,11 @@ Private Function LoadLanguage(strPath As String) As String
 
     LoadLanguage = ""
     Exit Function
-gotErr:
+goterr:
     LoadLanguage = "LoadLanguage: Got error code " & Err.Number & ": " & Err.Description
 End Function
 Private Function SaveSettings(ByVal strPath As String) As String
-    On Error GoTo gotErr
+    On Error GoTo goterr
     Dim strInfo As String
     Dim i As Long
     strInfo = CStr(HPmanadelay1)
@@ -1473,7 +1473,7 @@ Private Function SaveSettings(ByVal strPath As String) As String
     
     SaveSettings = ""
     Exit Function
-gotErr:
+goterr:
     SaveSettings = "Got error code " & Err.Number & ": " & Err.Description
 End Function
 
@@ -1656,7 +1656,7 @@ End Sub
 
 
 Private Sub LoadSettingsFromFile()
-    On Error GoTo gotErr
+    On Error GoTo goterr
     
     Dim strRes As String
     Dim strRes2 As String
@@ -1702,14 +1702,14 @@ Private Sub LoadSettingsFromFile()
 '        End If
 '    End If
 '    Exit Sub
-gotErr:
+goterr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadSettingsFromFile"
     End If
 End Sub
 
 Private Sub SaveSettingsToFile()
-    On Error GoTo gotErr
+    On Error GoTo goterr
     
     Dim strRes As String
     Dim strRes2 As String
@@ -1756,7 +1756,7 @@ Private Sub SaveSettingsToFile()
 '        End If
 '    End If
 '    Exit Sub
-gotErr:
+goterr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "Error"
     End If
@@ -1861,7 +1861,7 @@ Private Sub mSetLanguageFile_Click()
 End Sub
 
 Private Sub LoadLangFromFile()
-    On Error GoTo gotErr
+    On Error GoTo goterr
     
     
     Dim strRes As String
@@ -1910,7 +1910,7 @@ Private Sub LoadLangFromFile()
 '        End If
 '    End If
 '    Exit Sub
-gotErr:
+goterr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadLangFromFile"
     End If
@@ -1919,7 +1919,7 @@ End Sub
 
 
 Public Function autoGetTibiaFolder() As String
-    On Error GoTo gotErr
+    On Error GoTo goterr
     Dim tpath As String
     tpath = GetProgFolder()
     If Right$(tpath, 1) <> "\" Then
@@ -1932,13 +1932,13 @@ Public Function autoGetTibiaFolder() As String
         autoGetTibiaFolder = ""
     End If
     Exit Function
-gotErr:
+goterr:
     autoGetTibiaFolder = ""
 End Function
 
 Private Sub LoadTibiaPathFromFile()
   #If FinalMode Then
-    On Error GoTo gotErr
+    On Error GoTo goterr
   #End If
     
     
@@ -1987,7 +1987,7 @@ Private Sub LoadTibiaPathFromFile()
 '        End If
 '    End If
 '    Exit Sub
-gotErr:
+goterr:
     If Err.Number <> 32755 Then
         MsgBox "Unexpected error " & Err.Number & ": " & Err.Description, vbOKOnly + vbCritical, "LoadTibiaPathFromFile"
     End If
